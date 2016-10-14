@@ -54,4 +54,43 @@ set
 
 ***递归函数中提到的递归优化以及课后题的汉诺塔没做
 
+切片
+1.	L[0:1:2]: 0代表起始位置，1代表结束位置，3代表每几个取数
+2.	从后往前就是L[-2: -0]
+3.	list切片还是list，tuple切片还是tuple
 
+迭代
+1.	for … in …
+2.	必须是可以迭代的对象：from collections import Iterable  isinstance(对象, Iterable)  True or False
+3.	可以同时引用两个变量for x, y in [(1, 1), (2, 2)…]:  1 1…
+4.	isinstance还可以用来判断别的
+
+列表生成器
+1.	[x * x for x in range(1, 11) if x % 2 == 0]: 选出1×1，2×2…中的偶数
+2.	[m + n for m in ‘ABC’ for n in ‘XYZ’]
+3.	[s.lower() for s in L]
+
+生成器
+1.	与列表生成器的区别就是不是[]而是（），通常用for来打印列表
+2.	与函数的区别：函数遇到return返回，生成器遇到yield就返回，下次从yield继续。
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        print(b)
+        a, b = b, a + b
+        n = n + 1
+return 'done'
+
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        yield b
+        a, b = b, a + b
+        n = n + 1
+return 'done
+3.	生成器需要显示return值，要用捕捉错误的方法try…except
+
+迭代器
+1.	迭代器Iterator和可迭代对象Iterable的区别不是很懂
+2.	可用for都是Iterable, 可用next()都是Iterator
+3.	
